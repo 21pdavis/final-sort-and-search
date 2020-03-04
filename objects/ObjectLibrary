@@ -1,1 +1,27 @@
+package objects;
 
+import java.util.ArrayList;
+
+public class ObjectLibrary {
+	ArrayList<Employee> employees;
+	ArrayList<Student> students;
+	ArrayList<Widget> widgets;
+	
+	public ObjectLibrary() {
+		employees = new ArrayList<Employee>();
+		students = new ArrayList<Student>();
+		widgets = new ArrayList<Widget>();
+	}
+	
+	public ArrayList<Employee> getEmployees(){
+		return employees;
+	}
+	
+	public ArrayList<Student> getStudents(){
+		return students;
+	}
+	
+	public ArrayList<Widget> getWidgets(){
+		return widgets;
+	}
+}
