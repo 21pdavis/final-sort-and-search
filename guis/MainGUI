@@ -1,1 +1,12 @@
+package guis;
 
+import BreezySwing.*;
+import javax.swing.*;
+import objects.ObjectLibrary;
+
+@SuppressWarnings({"serial", "unused"})
+public class MainGUI extends GBFrame{
+	private ObjectLibrary objLib;
+	private AddEmployeeGUI addEmployeeGUI;
+	private AddStudentGUI addStudentGUI;
+}
