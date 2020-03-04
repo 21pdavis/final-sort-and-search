@@ -1,1 +1,15 @@
+package guis;
 
+import BreezySwing.*;
+import javax.swing.*;
+import objects.ObjectLibrary;
+
+public class AddWidgetGUI extends GBDialog{
+	private ObjectLibrary objLib;
+
+	public AddWidgetGUI(JFrame frm, ObjectLibrary objLib) {
+		super(frm);
+		this.objLib = objLib;
+	}
+
+}
