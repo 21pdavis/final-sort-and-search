@@ -31,7 +31,7 @@ public class Widget implements Comparable<Widget>{
 	
 	@Override
 	public int compareTo(Widget o) {
-		return 0;
+		return Integer.compare(productNum, o.getProductNum());
 	}
 	
 	public String toString() {
