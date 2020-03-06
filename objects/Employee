@@ -32,7 +32,7 @@ public class Employee implements Comparable<Employee>{
 	
 	@Override
 	public int compareTo(Employee o) {
-		return 0;
+		return Double.compare(salary, o.getSalary());
 	}
 	
 	public String toString() {
