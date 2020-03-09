@@ -35,19 +35,24 @@ public class SortSearch {
 	
 	public static ArrayList<Comparable> binarySearch(ArrayList<Comparable> list, Object key){
 		ArrayList<Comparable> results = new ArrayList<Comparable>();
-		int lBound = list.size(), uBound = list.size() - 1;
+		int lBound = 0, uBound = list.size() - 1;
+		
+		if(list.size() == 0) {
+			results.add(list.get(0));
+		}
 		
 		while(lBound <= uBound) {
-			int midIndex = l + (uBound - 1) / 2;
+			int midIndex = lBound + (uBound - 1) / 2;
 			
 			if(list.get(midIndex).compareTo(key) == 0) 
-				return midIndex;
+				results.add(list.get(midIndex));
 			
 			if(list.get(midIndex).compareTo(key) < 0) 
 				lBound = midIndex + 1;
 			else 
 				uBound = midIndex - 1;
 		}
+		System.out.println(results.toString());
 		return results;
 	}
 	
@@ -55,7 +60,7 @@ public class SortSearch {
 		ArrayList<Comparable> results = new ArrayList<Comparable>();
 		for(int i = 0; i < list.size(); i++) {
 			if(list.get(i).compareTo(key) == 0) {
-				results.add(results.get(i));
+				results.add(list.get(i));
 			}
 		}
 		return results;
