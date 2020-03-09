@@ -10,8 +10,8 @@ public class Employee implements Comparable<Employee>{
 	}
 	
 	public Employee(String name, double salary) {
-		this.name = "";
-		this.salary = 0;
+		this.name = name;
+		this.salary = salary;
 	}
 	
 	public void setName(String name) {
@@ -36,6 +36,6 @@ public class Employee implements Comparable<Employee>{
 	}
 	
 	public String toString() {
-		return "Name: " + name + ", Salary: " + salary;
+		return "Name: " + name + ", Salary: " + Math.round(salary * 100) / 100;
 	}
 }
