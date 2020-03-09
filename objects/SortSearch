@@ -43,18 +43,20 @@ public class SortSearch {
 		
 		int lBound = 0, uBound = tempList.size() - 1;
 		
-		while(lBound <= uBound) {
-			int midIndex = lBound + (uBound - 1) / 2;
-			
-			if(tempList.get(midIndex).compareTo(key) == 0) {
-				results.add(tempList.get(midIndex));
-				tempList.remove(midIndex);
+		while(tempList.size() >= 2){
+			while(lBound <= uBound) {
+				int midIndex = lBound + (uBound - 1) / 2;
+
+				if(tempList.get(midIndex).compareTo(key) == 0) {
+					results.add(tempList.get(midIndex));
+					tempList.remove(midIndex);
+				}
+
+				if(tempList.get(midIndex).compareTo(key) < 0) 
+					lBound = midIndex + 1;
+				else 
+					uBound = midIndex - 1;
 			}
-			
-			if(tempList.get(midIndex).compareTo(key) < 0) 
-				lBound = midIndex + 1;
-			else 
-				uBound = midIndex - 1;
 		}
 		return results;
 	}
