@@ -4,12 +4,37 @@ import BreezySwing.*;
 import javax.swing.*;
 import objects.ObjectLibrary;
 
+@SuppressWarnings({"serial", "unused"})
 public class AddWidgetGUI extends GBDialog{
 	private ObjectLibrary objLib;
-
+	private JLabel productNumLabel = addLabel("Product Number: :", 1,1,1,1);
+	private JTextField productNumField = addTextField("", 1,2,1,1);
+	private JLabel numSoldLabel = addLabel("Number Sold: : ", 2,1,1,1);
+	private JTextField numSoldField = addTextField("", 2,2,1,1);
+	private JButton addWidgetButton = addButton("Add Widget", 3,1,1,1);
+	private JButton exitButton = addButton("Exit", 3,2,1,1);
+	
 	public AddWidgetGUI(JFrame frm, ObjectLibrary objLib) {
 		super(frm);
 		this.objLib = objLib;
+		setSize(400, 300);
+		setTitle("Add Widget");
+		setResizable(false);
 	}
-
+	
+	public void buttonClicked(JButton buttonObj) {
+		if(buttonObj == addWidgetButton) {
+			objLib.addWidget(Integer.parseInt(productNumField.getText()), Integer.parseInt(numSoldField.getText()));
+			messageBox("Successfully Added Widget");
+			resetFrame();
+		}
+		if(buttonObj == exitButton) {
+			setVisible(false);
+		}
+	}
+	
+	public void resetFrame() {
+		productNumField.setText("");
+		numSoldField.setText("");
+	}
 }
