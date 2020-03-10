@@ -27,7 +27,7 @@ public class EmployeeSearchGUI extends GBDialog{
 			}
 		}
 		catch(IndexOutOfBoundsException e) {
-			messageBox("No items in array");
+			messageBox("No items in array or no matches");
 			resetFrame();
 		}
 		catch(NumberFormatException e) {
