@@ -24,9 +24,30 @@ public class AddEmployeeGUI extends GBDialog{
 	
 	public void buttonClicked(JButton buttonObj) {
 		if(buttonObj == addEmployeeButton) {
-			objLib.addEmployee(nameField.getText(), Double.parseDouble(salaryField.getText()));
-			messageBox("Successfully Added Employee");
-			resetFrame();
+			try {
+				if(nameField.getText().isEmpty() == false && salaryField.getText().isEmpty() == false && nameField.getText().matches(".*\\d.*") == false && 
+						Double.parseDouble(salaryField.getText()) >= 0) {
+					objLib.addEmployee(nameField.getText(), Double.parseDouble(salaryField.getText()));
+					messageBox("Successfully Added Employee");
+					resetFrame();
+				}
+				else if(nameField.getText().isEmpty() || salaryField.getText().isEmpty()) {
+					messageBox("One or more fields is/are empty");
+					resetFrame();
+				}
+				else if(nameField.getText().matches(".*\\d.*")) {
+					messageBox("Input only letters in name field");
+					resetFrame();
+				}
+				else if(Double.parseDouble(salaryField.getText()) < 0) {
+					messageBox("Salary must be greater than 0");
+					resetFrame();
+				}
+			}
+			catch(NumberFormatException e) {
+				messageBox("Input only valid numbers in salary field");
+				resetFrame();
+			}
 		}
 		if(buttonObj == exitButton) {
 			setVisible(false);
