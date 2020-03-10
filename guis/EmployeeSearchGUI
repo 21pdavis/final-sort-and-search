@@ -16,13 +16,23 @@ public class EmployeeSearchGUI extends GBDialog{
 	private JButton exitButton = addButton("Exit", 4,1,1,1);
 	
 	public void buttonClicked(JButton buttonObj) {
-		if(buttonObj == sequentialSearchButton) {
-			displayGUI.initList(SortSearch.sequentialSearch(SortSearch.selectionSort(objLib.getEmployees()), new Employee("", Double.parseDouble(salaryField.getText()))));
-			displayGUI.setVisible(true);
+		try {
+			if(buttonObj == sequentialSearchButton) {
+				displayGUI.initList(SortSearch.sequentialSearch(SortSearch.selectionSort(objLib.getEmployees()), new Employee("", Double.parseDouble(salaryField.getText()))));
+				displayGUI.setVisible(true);
+			}
+			if(buttonObj == binarySearchButton) {
+				displayGUI.initList(SortSearch.binarySearch(SortSearch.selectionSort(objLib.getEmployees()), new Employee("", Double.parseDouble(salaryField.getText()))));
+				displayGUI.setVisible(true);
+			}
 		}
-		if(buttonObj == binarySearchButton) {
-			displayGUI.initList(SortSearch.binarySearch(SortSearch.selectionSort(objLib.getEmployees()), new Employee("", Double.parseDouble(salaryField.getText()))));
-			displayGUI.setVisible(true);
+		catch(IndexOutOfBoundsException e) {
+			messageBox("No items in array");
+			resetFrame();
+		}
+		catch(NumberFormatException e) {
+			messageBox("Input only numbers");
+			resetFrame();
 		}
 		if(buttonObj == exitButton) {
 			setVisible(false);
