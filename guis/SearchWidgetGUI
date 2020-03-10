@@ -9,8 +9,8 @@ public class WidgetSearchGUI extends GBDialog{
 	private DisplayGUI displayGUI;
 	private ObjectLibrary objLib;
 	private JLabel instructionsLabel = addLabel("Search for a Widget:", 1,1,1,1);
-	private JLabel productNumLabel = addLabel("Number Sold:", 2,1,1,1);
-	private JTextField productNumField = addTextField("", 2,2,1,1);
+	private JLabel numSoldLabel = addLabel("Number Sold:", 2,1,1,1);
+	private JTextField numSoldField = addTextField("", 2,2,1,1);
 	private JButton sequentialSearchButton = addButton("Sequential Search", 3,1,1,1);
 	private JButton binarySearchButton = addButton("Binary Search", 3,2,1,1);
 	private JButton exitButton = addButton("Exit", 4,1,1,1);
@@ -18,7 +18,7 @@ public class WidgetSearchGUI extends GBDialog{
 	public void buttonClicked(JButton buttonObj) {
 		try {
 			if(buttonObj == sequentialSearchButton) {
-				displayGUI.initList(SortSearch.sequentialSearch(SortSearch.selectionSort(objLib.getWidgets()), new Widget(0, Integer.parseInt(numSoldField.getText())));
+				displayGUI.initList(SortSearch.sequentialSearch(SortSearch.selectionSort(objLib.getWidgets()), new Widget(0, Integer.parseInt(numSoldField.getText()))));
 				displayGUI.setVisible(true);
 			}
 			if(buttonObj == binarySearchButton) {
@@ -27,7 +27,7 @@ public class WidgetSearchGUI extends GBDialog{
 			}
 		}
 		catch(IndexOutOfBoundsException e) {
-			messageBox("No items in array");
+			messageBox("No items in array or no matches");
 			resetFrame();
 		}
 		catch(NumberFormatException e) {
@@ -46,6 +46,6 @@ public class WidgetSearchGUI extends GBDialog{
 	}
 	
 	public void resetFrame() {
-		productNumField.setText("");
+		numSoldField.setText("");
 	}
 }
