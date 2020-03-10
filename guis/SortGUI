@@ -27,29 +27,34 @@ public class SortGUI extends GBDialog {
 	}
 	
 	public void buttonClicked(JButton buttonObj) {
-		if(buttonObj == selectionSortEmployeesButton) {
-			displayGUI.initList(SortSearch.selectionSort(objLib.getEmployees()));
-			displayGUI.setVisible(true);
+		try {
+			if(buttonObj == selectionSortEmployeesButton) {
+				displayGUI.initList(SortSearch.selectionSort(objLib.getEmployees()));
+				displayGUI.setVisible(true);
+			}
+			if(buttonObj == insertionSortEmployeesButton) {
+				displayGUI.initList(SortSearch.insertionSort(objLib.getEmployees()));
+				displayGUI.setVisible(true);
+			}
+			if(buttonObj == selectionSortStudentsButton) {
+				displayGUI.initList(SortSearch.selectionSort(objLib.getStudents()));
+				displayGUI.setVisible(true);
+			}
+			if(buttonObj == insertionSortStudentsButton) {
+				displayGUI.initList(SortSearch.insertionSort(objLib.getStudents()));
+				displayGUI.setVisible(true);
+			}
+			if(buttonObj == selectionSortWidgetsButton) {
+				displayGUI.initList(SortSearch.selectionSort(objLib.getWidgets()));
+				displayGUI.setVisible(true);
+			}
+			if(buttonObj == insertionSortWidgetsButton) {
+				displayGUI.initList(SortSearch.insertionSort(objLib.getWidgets()));
+				displayGUI.setVisible(true);
+			}
 		}
-		if(buttonObj == insertionSortEmployeesButton) {
-			displayGUI.initList(SortSearch.insertionSort(objLib.getEmployees()));
-			displayGUI.setVisible(true);
-		}
-		if(buttonObj == selectionSortStudentsButton) {
-			displayGUI.initList(SortSearch.selectionSort(objLib.getStudents()));
-			displayGUI.setVisible(true);
-		}
-		if(buttonObj == insertionSortStudentsButton) {
-			displayGUI.initList(SortSearch.insertionSort(objLib.getStudents()));
-			displayGUI.setVisible(true);
-		}
-		if(buttonObj == selectionSortWidgetsButton) {
-			displayGUI.initList(SortSearch.selectionSort(objLib.getWidgets()));
-			displayGUI.setVisible(true);
-		}
-		if(buttonObj == insertionSortWidgetsButton) {
-			displayGUI.initList(SortSearch.insertionSort(objLib.getWidgets()));
-			displayGUI.setVisible(true);
+		catch(IndexOutOfBoundsException e) {
+			messageBox("No items in array");
 		}
 		if(buttonObj == exitButton) {
 			setVisible(false);
