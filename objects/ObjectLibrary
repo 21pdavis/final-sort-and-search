@@ -3,6 +3,7 @@ package objects;
 import java.util.ArrayList;
 
 public class ObjectLibrary {
+	//Didn't know it had to be one arraylist until day before it was due and had no time to change :(
 	ArrayList<Comparable> employees;
 	ArrayList<Comparable> students;
 	ArrayList<Comparable> widgets;
