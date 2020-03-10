@@ -7,7 +7,8 @@ import objects.*;
 
 @SuppressWarnings({"serial", "unused"})
 public class DisplayGUI extends GBDialog{
-	private JList<String> outputList = addList(1,1,1,1);
+	private JLabel outputLabel = addLabel("Matches Found:", 1,1,1,1);
+	private JList<String> outputList = addList(2,1,1,1);
 	private DefaultListModel<String> model = (DefaultListModel<String>)outputList.getModel();
 	private JButton exitButton = addButton("Exit", 2,1,1,1);
 	
