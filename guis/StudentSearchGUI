@@ -27,11 +27,7 @@ public class StudentSearchGUI extends GBDialog{
 			}
 		}
 		catch(IndexOutOfBoundsException e) {
-			messageBox("No items in array");
-			resetFrame();
-		}
-		catch(NumberFormatException e) {
-			messageBox("Input only numbers");
+			messageBox("No items in array or no matches");
 			resetFrame();
 		}
 		if(buttonObj == exitButton) {
