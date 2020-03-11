@@ -4,42 +4,48 @@ import java.util.ArrayList;
 
 public class ObjectLibrary {
 	//Didn't know it had to be one arraylist until day before it was due and had no time to change :(
-	ArrayList<Comparable> employees;
-	ArrayList<Comparable> students;
-	ArrayList<Comparable> widgets;
+	ArrayList<Comparable> items;
 	
 	public ObjectLibrary() {
-		employees = new ArrayList<Comparable>();
-		students = new ArrayList<Comparable>();
-		widgets = new ArrayList<Comparable>();
+		items = new ArrayList<Comparable>();
 	}
 	
 	public void addEmployee(String name, double salary) {
-		employees.add(new Employee(name, salary));
+		items.add(new Employee(name, salary));
 	}
 	
 	public ArrayList<Comparable> getEmployees(){
-		return employees;
+		ArrayList<Comparable> tempList = new ArrayList<Comparable>();
+		for(int i = 0; i < items.size(); i++){
+			if(items.get(i) instanceof Employee)
+				tempList.add(items.get(i));
+		}
+		return tempList;
 	}
 	
 	public void addStudent(String name, double gpa) {
-		students.add(new Student(name, gpa));
+		items.add(new Student(name, gpa));
 	}
 	
 	public ArrayList<Comparable> getStudents(){
 		ArrayList<Comparable> tempList = new ArrayList<Comparable>();
-		for(int i = 0; i < students.size(); i++){
-			if(students.get(i) instanceof Student)
-				tempList.add(students.get(i));
+		for(int i = 0; i < items.size(); i++){
+			if(items.get(i) instanceof Student)
+				tempList.add(items.get(i));
 		}
 		return tempList;
 	}
 	
 	public void addWidget(int productNum, int numSold) {
-		widgets.add(new Widget(productNum, numSold));
+		items.add(new Widget(productNum, numSold));
 	}
 	
 	public ArrayList<Comparable> getWidgets(){
-		return widgets;
+		ArrayList<Comparable> tempList = new ArrayList<Comparable>();
+		for(int i = 0; i < items.size(); i++){
+			if(items.get(i) instanceof Widget)
+				tempList.add(items.get(i));
+		}
+		return tempList;
 	}
 }
